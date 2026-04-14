@@ -1,9 +1,11 @@
-import type { SVGProps } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2, Star, Quote, Award } from 'lucide-react';
+import { ArrowRight, Star, Award, Shield, ArrowDown } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { Button } from '../components/ui/Button';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ui/ScrollReveal';
+import { SectionDivider } from '../components/ui/SectionDivider';
+import { CountUp } from '../components/ui/CountUp';
 
 export function Home() {
   return (
@@ -15,10 +17,8 @@ export function Home() {
           "@context": "https://schema.org",
           "@type": "HomeAndConstructionBusiness",
           "name": "Scafati Woodworks",
-          "image": "https://images.unsplash.com/photo-1610505466023-991c28c86514?auto=format&fit=crop&q=80",
-          "@id": "",
           "url": "https://scafatiwoodworks.com",
-          "telephone": "+15551234567",
+          "telephone": "+18174036044",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "123 Craftsman Way",
@@ -27,260 +27,349 @@ export function Home() {
             "postalCode": "75201",
             "addressCountry": "US"
           },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 32.7767,
-            "longitude": -96.7970
-          },
           "priceRange": "$$$$"
         }}
       />
 
-      {/* Section 1: The Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden">
+      {/* ━━━ HERO SECTION ━━━ */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80" 
-            alt="Flawless completed luxury kitchen cabinetry" 
-            className="w-full h-full object-cover opacity-40"
-            referrerPolicy="no-referrer"
+            src="/images/hero-kitchen-dark.png" 
+            alt="Luxury custom kitchen cabinetry by Scafati Woodworks" 
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-stone-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/85 to-stone-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/30" />
+          <div className="absolute inset-0 grain-overlay" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 md:px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl pt-20">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wood-950/50 border border-wood-800 text-wood-400 text-sm font-medium mb-6">
-                <MapPinIcon className="w-4 h-4" />
-                <span>Dallas, Texas</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-stone-50 leading-tight mb-6">
-                Bespoke Cabinetry & Fine Woodworking
-              </h1>
-              <p className="text-lg md:text-2xl text-stone-300 mb-10 leading-relaxed max-w-2xl font-light">
-                Elevating homes with uncompromising craftsmanship and timeless design.
-              </p>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-700/30 bg-gold-950/30 text-gold-500 text-xs font-medium tracking-widest uppercase mb-8"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
+                Dallas, Texas — Est. 2004
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-5xl md:text-6xl lg:text-[5.5rem] font-serif font-semibold text-stone-50 leading-[1.05] mb-7 tracking-tight"
+              >
+                Bespoke Cabinetry{' '}
+                <span className="text-gold-gradient">&</span>{' '}
+                <span className="italic font-light">Fine Woodworking</span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.7 }}
+                className="text-lg md:text-xl text-stone-400 mb-12 leading-relaxed max-w-xl font-light"
+              >
+                Elevating Dallas's finest homes with uncompromising craftsmanship, 
+                timeless design, and a relentless pursuit of perfection.
+              </motion.p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="text-base h-14 px-8">
+              {/* CTAs */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <Button size="lg" asChild className="shimmer h-14 px-10 text-base">
                   <Link to="/contact">Request a Consultation</Link>
                 </Button>
-              </div>
+                <Button variant="outline" size="lg" asChild className="h-14 px-8 text-base">
+                  <Link to="/portfolio">
+                    View Our Work
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        >
+          <span className="text-stone-500 text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          >
+            <ArrowDown className="w-4 h-4 text-gold-600/60" />
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* Section 2: Trust & Authority */}
-      <section className="py-12 bg-stone-900 border-y border-stone-800">
+
+      {/* ━━━ TRUST BAR ━━━ */}
+      <section className="py-16 bg-stone-900/50 border-y border-stone-800/50 grain-overlay">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center md:text-left">
-            <div className="flex items-center gap-4">
-              <Award className="w-12 h-12 text-wood-500" />
-              <div>
-                <div className="text-2xl font-serif font-bold text-stone-100">20+ Years</div>
-                <div className="text-stone-400 text-sm uppercase tracking-widest">Master Craftsmanship</div>
+          <ScrollReveal>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 text-center">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full border border-gold-700/30 bg-gold-950/20 flex items-center justify-center">
+                  <Award className="w-6 h-6 text-gold-600" />
+                </div>
+                <div className="text-left">
+                  <div className="text-3xl font-serif font-semibold text-stone-100">
+                    <CountUp end={20} suffix="+" />
+                  </div>
+                  <div className="text-stone-500 text-xs uppercase tracking-[0.2em]">Years Experience</div>
+                </div>
+              </div>
+
+              <div className="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-stone-700 to-transparent" />
+
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full border border-gold-700/30 bg-gold-950/20 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-gold-600" />
+                </div>
+                <div className="text-left">
+                  <div className="text-3xl font-serif font-semibold text-stone-100">
+                    <CountUp end={500} suffix="+" />
+                  </div>
+                  <div className="text-stone-500 text-xs uppercase tracking-[0.2em]">Projects Completed</div>
+                </div>
+              </div>
+
+              <div className="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-stone-700 to-transparent" />
+
+              <div className="flex items-center gap-4">
+                <div className="flex gap-0.5 mr-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-gold-500 text-gold-500" />
+                  ))}
+                </div>
+                <div className="text-left">
+                  <div className="text-3xl font-serif font-semibold text-stone-100">5.0</div>
+                  <div className="text-stone-500 text-xs uppercase tracking-[0.2em]">Client Rating</div>
+                </div>
               </div>
             </div>
-            <div className="hidden md:block w-px h-12 bg-stone-800"></div>
-            <div className="flex items-center gap-4">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-wood-500 text-wood-500" />
-                ))}
-              </div>
-              <div>
-                <div className="text-xl font-serif font-bold text-stone-100">5-Star Rated</div>
-                <div className="text-stone-400 text-sm uppercase tracking-widest">By Dallas Homeowners</div>
-              </div>
-            </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Section 3: Service Silos */}
-      <section className="py-24 bg-stone-950">
+
+      {/* ━━━ SERVICES ━━━ */}
+      <section className="py-28 bg-stone-950 grain-overlay">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-50 mb-6">Masterful Creations</h2>
-            <p className="text-stone-400 text-lg">
+          <ScrollReveal className="text-center max-w-3xl mx-auto mb-20">
+            <SectionDivider className="mb-6" />
+            <h2 className="text-4xl md:text-5xl font-serif font-semibold text-stone-50 mb-5">
+              Masterful <span className="text-gold-gradient">Creations</span>
+            </h2>
+            <p className="text-stone-500 text-lg font-light">
               We specialize in high-end, custom woodworking tailored to the unique rhythm of your home.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 title: 'Custom Kitchens',
                 desc: 'Bespoke culinary spaces designed for flawless aesthetics and unparalleled functionality.',
-                img: 'https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80',
+                img: '/images/luxury-kitchen.png',
                 link: '/kitchens'
               },
               {
                 title: 'Architectural Built-ins',
                 desc: 'Seamless libraries, entertainment centers, and mudrooms that elevate your architecture.',
-                img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80',
+                img: '/images/library-builtins.png',
                 link: '/built-ins'
               },
               {
                 title: 'Luxury Closets',
                 desc: 'Meticulously organized sanctuaries and dressing rooms crafted with premium materials.',
-                img: 'https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&q=80',
+                img: '/images/luxury-closet.png',
                 link: '/closets'
               }
             ].map((service, i) => (
-              <Link to={service.link} key={i} className="group block relative h-[500px] overflow-hidden rounded-lg">
-                <img 
-                  src={service.img} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent opacity-90" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-serif font-bold text-stone-100 mb-3 group-hover:text-wood-400 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-stone-300 text-sm mb-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    {service.desc}
-                  </p>
-                  <div className="inline-flex items-center text-wood-500 text-sm font-medium uppercase tracking-wider">
-                    View Gallery <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-2" />
+              <StaggerItem key={i}>
+                <Link to={service.link} className="group block relative h-[550px] overflow-hidden rounded-xl img-zoom">
+                  <img 
+                    src={service.img} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                  
+                  {/* Decorative top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="overflow-hidden">
+                      <h3 className="text-2xl md:text-3xl font-serif font-semibold text-stone-100 mb-3 group-hover:text-gold-400 transition-colors duration-500">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="text-stone-400 text-sm leading-relaxed mb-6 max-w-xs opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                      {service.desc}
+                    </p>
+                    <div className="inline-flex items-center text-gold-600 text-xs font-semibold uppercase tracking-[0.2em]">
+                      Explore 
+                      <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-2" />
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Section 4: The Process */}
-      <section className="py-24 bg-stone-900 border-y border-stone-800">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-50 mb-6">
-              The Scafati Process
-            </h2>
-            <p className="text-stone-400 text-lg">
-              A seamless, low-friction journey from your initial vision to the final, flawless installation.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-stone-800"></div>
+      {/* ━━━ THE PROCESS ━━━ */}
+      <section className="py-28 bg-stone-900/30 border-y border-stone-800/50 grain-overlay">
+        <div className="container mx-auto px-4 md:px-6">
+          <ScrollReveal className="text-center max-w-3xl mx-auto mb-20">
+            <SectionDivider className="mb-6" />
+            <h2 className="text-4xl md:text-5xl font-serif font-semibold text-stone-50 mb-5">
+              The Scafati <span className="text-gold-gradient">Process</span>
+            </h2>
+            <p className="text-stone-500 text-lg font-light">
+              A seamless journey from your initial vision to the final, flawless installation.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-gold-800/30 via-gold-600/40 to-gold-800/30" />
             
             {[
               {
                 step: '01',
-                title: 'Design Consultation & 3D Rendering',
-                desc: 'We begin with a private consultation to understand your vision, followed by precise measurements and photorealistic 3D renderings of your bespoke space.'
+                title: 'Design Consultation',
+                subtitle: '& 3D Rendering',
+                desc: 'We begin with a private consultation, followed by precise measurements and photorealistic 3D renderings of your bespoke space.'
               },
               {
                 step: '02',
-                title: 'Precision Fabrication',
-                desc: 'Your project is meticulously crafted in our Dallas workshop, marrying time-honored woodworking techniques with state-of-the-art precision.'
+                title: 'Precision',
+                subtitle: 'Fabrication',
+                desc: 'Your project is meticulously crafted in our Dallas workshop, marrying time-honored techniques with state-of-the-art precision.'
               },
               {
                 step: '03',
-                title: 'White-Glove Installation',
-                desc: 'Our master craftsmen handle the final installation with the utmost care, ensuring a perfect fit and a flawless finish in your home.'
+                title: 'White-Glove',
+                subtitle: 'Installation',
+                desc: 'Our master craftsmen handle every detail of the final installation, ensuring a perfect fit and flawless finish.'
               }
             ].map((item, i) => (
-              <div key={i} className="relative text-center z-10">
-                <div className="w-24 h-24 mx-auto bg-stone-950 border-2 border-wood-800 rounded-full flex items-center justify-center mb-8 shadow-xl">
-                  <span className="font-serif text-3xl font-bold text-wood-500">{item.step}</span>
+              <ScrollReveal key={i} delay={i * 0.15}>
+                <div className="relative text-center z-10 group">
+                  <div className="w-[70px] h-[70px] mx-auto bg-stone-950 border border-gold-700/30 rounded-full flex items-center justify-center mb-8 shadow-xl group-hover:border-gold-600/60 transition-colors duration-500">
+                    <span className="font-serif text-2xl font-semibold text-gold-600">{item.step}</span>
+                  </div>
+                  <h3 className="text-xl font-serif font-semibold text-stone-100 mb-1">{item.title}</h3>
+                  <h3 className="text-xl font-serif font-semibold text-gold-600 mb-5">{item.subtitle}</h3>
+                  <p className="text-stone-500 leading-relaxed text-sm max-w-xs mx-auto">{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-serif font-bold text-stone-100 mb-4">{item.title}</h3>
-                <p className="text-stone-400 leading-relaxed">{item.desc}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 5: Visual Portfolio Preview */}
-      <section className="py-24 bg-stone-950">
+
+      {/* ━━━ PORTFOLIO PREVIEW ━━━ */}
+      <section className="py-28 bg-stone-950 grain-overlay">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-50 mb-4">Recent Commissions</h2>
+          <ScrollReveal>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+              <div className="max-w-xl">
+                <SectionDivider className="mb-6 justify-start" />
+                <h2 className="text-4xl md:text-5xl font-serif font-semibold text-stone-50 mb-3">
+                  Recent <span className="text-gold-gradient">Commissions</span>
+                </h2>
+                <p className="text-stone-500 font-light">A glimpse into our latest bespoke creations.</p>
+              </div>
+              <Button variant="outline" asChild>
+                <Link to="/portfolio">
+                  Explore the Portfolio
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
             </div>
-            <Button variant="outline" asChild>
-              <Link to="/portfolio">Explore the Portfolio</Link>
-            </Button>
-          </div>
+          </ScrollReveal>
 
-          {/* Asymmetrical Masonry Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
-            <div className="md:col-span-8 md:row-span-2 relative rounded-lg overflow-hidden group">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80" alt="Library Built-ins" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" referrerPolicy="no-referrer" />
-              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors" />
-            </div>
-            <div className="md:col-span-4 md:row-span-1 relative rounded-lg overflow-hidden group">
-              <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&q=80" alt="Kitchen Details" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" referrerPolicy="no-referrer" />
-              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors" />
-            </div>
-            <div className="md:col-span-4 md:row-span-1 relative rounded-lg overflow-hidden group">
-              <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&q=80" alt="Custom Closet" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" referrerPolicy="no-referrer" />
-              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors" />
-            </div>
-          </div>
+          {/* Asymmetrical Grid */}
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[280px]">
+            <StaggerItem className="md:col-span-8 md:row-span-2 relative rounded-xl overflow-hidden img-zoom group">
+              <img src="/images/luxury-kitchen.png" alt="Luxury Kitchen Commission" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-1">Kitchen</p>
+                <h4 className="font-serif text-xl text-stone-100">Highland Park Estate</h4>
+              </div>
+            </StaggerItem>
+            <StaggerItem className="md:col-span-4 relative rounded-xl overflow-hidden img-zoom group">
+              <img src="/images/library-builtins.png" alt="Library Built-ins" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-1">Built-ins</p>
+                <h4 className="font-serif text-lg text-stone-100">Private Library</h4>
+              </div>
+            </StaggerItem>
+            <StaggerItem className="md:col-span-4 relative rounded-xl overflow-hidden img-zoom group">
+              <img src="/images/luxury-closet.png" alt="Luxury Closet" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-stone-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-gold-500 text-xs uppercase tracking-[0.2em] mb-1">Closets</p>
+                <h4 className="font-serif text-lg text-stone-100">Master Suite Dressing Room</h4>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Section 6: Social Proof */}
-      <section className="py-32 bg-stone-900 border-y border-stone-800 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl opacity-5 text-stone-100">
-          <Quote className="w-full h-full" />
+
+      {/* ━━━ TESTIMONIALS ━━━ */}
+      <section className="py-32 bg-stone-900/30 border-y border-stone-800/50 relative overflow-hidden grain-overlay">
+        {/* Decorative quote mark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-stone-800/10 font-serif text-[25rem] leading-none select-none pointer-events-none">
+          "
         </div>
+        
         <div className="container relative z-10 mx-auto px-4 md:px-6 text-center max-w-4xl">
-          <p className="text-2xl md:text-4xl font-serif text-stone-100 leading-relaxed mb-10 italic">
-            "Scafati Woodworks does not just build cabinets; they craft architectural art. Their precision, professionalism, and ability to execute complex, high-end designs makes them our exclusive partner for luxury builds."
-          </p>
-          <div>
-            <div className="font-serif font-bold text-xl text-wood-500">Eleanor Vance</div>
-            <div className="text-stone-400 uppercase tracking-widest text-sm mt-1">Principal Designer, Vance Interiors</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Final CTA */}
-      <section className="py-24 bg-stone-950 text-center">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-stone-50 mb-6">Begin Your Project</h2>
-          <p className="text-xl text-stone-300 mb-10 font-light leading-relaxed">
-            We invite you to discuss your vision with our master craftsmen. Request a private consultation to explore materials, design possibilities, and the process of bringing your bespoke space to life.
-          </p>
-          <Button size="lg" asChild className="h-14 px-10 text-lg">
-            <Link to="/contact">Request a Consultation</Link>
-          </Button>
+          <ScrollReveal>
+            <SectionDivider className="mb-10" />
+            <p className="text-2xl md:text-4xl font-serif text-stone-200 leading-relaxed mb-12 italic font-light">
+              "Scafati Woodworks does not just build cabinets; they craft architectural art. 
+              Their precision, professionalism, and ability to execute complex, high-end designs 
+              makes them our exclusive partner for luxury builds."
+            </p>
+            <div>
+              <div className="font-serif font-semibold text-xl text-gold-600 mb-1">Eleanor Vance</div>
+              <div className="text-stone-500 uppercase tracking-[0.2em] text-xs">Principal Designer, Vance Interiors</div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </>
   );
-}
-
-function MapPinIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  )
 }

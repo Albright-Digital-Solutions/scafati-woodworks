@@ -1,108 +1,102 @@
 import { SEO } from '../components/SEO';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { SectionDivider } from '../components/ui/SectionDivider';
 
 export function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us | Request a Consultation | Scafati Woodworks"
+        title="Contact Us | Request a Consultation"
         description="Begin your project with Scafati Woodworks. Request a private consultation to explore materials, design possibilities, and bespoke cabinetry."
       />
 
-      <section className="pt-32 pb-16 bg-stone-950 border-b border-stone-900">
-        <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-stone-50 mb-6">Begin Your Project</h1>
-          <p className="text-lg text-stone-400">
-            We invite you to discuss your vision with our master craftsmen. Request a private consultation to explore materials, design possibilities, and the process of bringing your bespoke space to life.
-          </p>
+      {/* Hero */}
+      <section className="relative pt-36 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/hero-kitchen-dark.png" alt="Contact hero" className="w-full h-full object-cover opacity-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/80 via-stone-950/90 to-stone-950" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 md:px-6 text-center max-w-3xl">
+          <ScrollReveal>
+            <SectionDivider className="mb-6" />
+            <h1 className="text-4xl md:text-6xl font-serif font-semibold text-stone-50 mb-5">
+              Let's Build Something{' '}
+              <span className="text-gold-gradient">Extraordinary</span>
+            </h1>
+            <p className="text-lg text-stone-400 font-light">
+              We invite you to discuss your vision with our master craftsmen. Every masterpiece begins with a conversation.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      <section className="py-20 bg-stone-950">
+      <section className="py-20 bg-stone-950 grain-overlay">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-8">
+            <ScrollReveal variant="fadeLeft" className="lg:col-span-1 space-y-8">
               <div>
-                <h2 className="text-2xl font-serif font-bold text-stone-100 mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-serif font-semibold text-stone-100 mb-8">Contact Information</h2>
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
-                      <Phone className="w-5 h-5 text-wood-500" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-stone-400 mb-1">Call or Text</div>
-                      <a href="tel:+15551234567" className="text-lg font-medium text-stone-200 hover:text-wood-400 transition-colors">
-                        (555) 123-4567
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
-                      <Mail className="w-5 h-5 text-wood-500" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-stone-400 mb-1">Email</div>
-                      <a href="mailto:hello@scafatiwoodworks.com" className="text-lg font-medium text-stone-200 hover:text-wood-400 transition-colors break-all">
-                        hello@scafatiwoodworks.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5 text-wood-500" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-stone-400 mb-1">Workshop (By Appointment)</div>
-                      <div className="text-lg font-medium text-stone-200">
-                        123 Craftsman Way<br />
-                        Dallas, TX 75201
+                  {[
+                    {
+                      icon: Phone,
+                      label: 'Call or Text',
+                      value: '(817) 403-6044',
+                      href: 'tel:+18174036044',
+                    },
+                    {
+                      icon: Mail,
+                      label: 'Email',
+                      value: 'info@scafatiwoodworks.com',
+                      href: 'mailto:info@scafatiwoodworks.com',
+                    },
+                    {
+                      icon: MapPin,
+                      label: 'Workshop (By Appointment)',
+                      value: '123 Craftsman Way\nDallas, TX 75201',
+                    },
+                    {
+                      icon: Clock,
+                      label: 'Hours',
+                      value: 'Mon - Fri: 8am - 5pm\nSat - Sun: Closed',
+                    },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4 group">
+                      <div className="w-11 h-11 rounded-full border border-stone-800/50 bg-stone-900/30 flex items-center justify-center shrink-0 group-hover:border-gold-700/40 transition-colors">
+                        <item.icon className="w-4.5 h-4.5 text-gold-600" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-stone-500 uppercase tracking-[0.2em] mb-1">{item.label}</div>
+                        {item.href ? (
+                          <a href={item.href} className="text-base font-medium text-stone-200 hover:text-gold-500 transition-colors whitespace-pre-line">
+                            {item.value}
+                          </a>
+                        ) : (
+                          <div className="text-base font-medium text-stone-200 whitespace-pre-line">
+                            {item.value}
+                          </div>
+                        )}
                       </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center shrink-0">
-                      <Clock className="w-5 h-5 text-wood-500" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-stone-400 mb-1">Hours</div>
-                      <div className="text-lg font-medium text-stone-200">
-                        Mon - Fri: 8am - 5pm<br />
-                        Sat - Sun: Closed
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="bg-stone-900 border border-stone-800 p-6 rounded-lg">
-                <h3 className="font-serif font-bold text-stone-100 mb-2">Service Area</h3>
-                <p className="text-sm text-stone-400 mb-4">
-                  We proudly serve the greater DFW metroplex, including Dallas, Fort Worth, Plano, Frisco, Southlake, and surrounding affluent neighborhoods.
+              <div className="bg-stone-900/30 border border-stone-800/30 p-6 rounded-xl">
+                <h3 className="font-serif font-semibold text-stone-100 mb-2">Service Area</h3>
+                <p className="text-sm text-stone-500 leading-relaxed">
+                  We proudly serve the greater DFW metroplex, including Dallas, Fort Worth, Plano, Frisco, Southlake, and surrounding communities.
                 </p>
-                <div className="w-full h-48 rounded-md overflow-hidden bg-stone-800">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.66442603417!2d-96.7970!3d32.7767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e992147321683%3A0x864e992147321683!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1713042000000!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen={false} 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Service Area Map"
-                  ></iframe>
-                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Form */}
-            <div className="lg:col-span-2">
+            <ScrollReveal variant="fadeRight" delay={0.2} className="lg:col-span-2">
               <QuoteForm />
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

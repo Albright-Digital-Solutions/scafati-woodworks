@@ -1,88 +1,122 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, ArrowRight } from 'lucide-react';
+import { ScrollReveal } from '../ui/ScrollReveal';
+import { SectionDivider } from '../ui/SectionDivider';
+import { Button } from '../ui/Button';
 
 export function Footer() {
   return (
-    <footer className="bg-stone-950 border-t border-stone-900 pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-2 group mb-2">
-              <div className="w-8 h-8 bg-wood-600 rounded-sm flex items-center justify-center text-stone-50 font-serif font-bold group-hover:bg-wood-500 transition-colors">
-                SW
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg font-bold text-stone-100 leading-none">Scafati</span>
-                <span className="text-[10px] uppercase tracking-widest text-wood-500 font-medium">Woodworks</span>
-              </div>
-            </Link>
-            <p className="text-stone-400 text-sm leading-relaxed">
-              Premium custom woodworking, furniture, and built-ins crafted with precision and passion for high-end homes and commercial spaces.
+    <>
+      {/* Pre-footer CTA */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/images/craftsman-workshop.png" 
+            alt="Master craftsman at work" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/90 to-stone-950/70" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 md:px-6 text-center max-w-3xl">
+          <ScrollReveal>
+            <SectionDivider className="mb-8" />
+            <h2 className="text-4xl md:text-6xl font-serif font-semibold text-stone-50 mb-6 leading-tight">
+              Begin Your <span className="text-gold-gradient">Legacy</span>
+            </h2>
+            <p className="text-lg text-stone-400 mb-10 font-light leading-relaxed max-w-xl mx-auto">
+              Every masterpiece starts with a conversation. Let us bring your vision to life with craftsmanship that endures for generations.
             </p>
-            <div className="flex gap-4 mt-2">
-              <a href="#" className="text-stone-400 hover:text-wood-500 transition-colors">
-                <Instagram className="w-5 h-5" />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="#" className="text-stone-400 hover:text-wood-500 transition-colors">
-                <Facebook className="w-5 h-5" />
-                <span className="sr-only">Facebook</span>
-              </a>
+            <Button size="lg" asChild className="shimmer h-14 px-10 text-base">
+              <Link to="/contact">
+                Schedule Your Consultation
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <footer className="bg-stone-950 border-t border-stone-900/50 pt-16 pb-8">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            {/* Brand */}
+            <div className="flex flex-col gap-5 lg:col-span-1">
+              <Link to="/" className="flex items-center group mb-1">
+                <img 
+                  src="/images/logo-dark.png" 
+                  alt="Scafati Woodworks — Cabinets & More" 
+                  className="h-22 w-auto group-hover:opacity-80 transition-all duration-300"
+                />
+              </Link>
+              <p className="text-stone-500 text-sm leading-relaxed">
+                Premium custom cabinetry and fine woodworking, crafted with precision and passion for Dallas's most discerning homes.
+              </p>
+              <div className="flex gap-3 mt-1">
+                <a href="https://www.instagram.com/scafati_woodworks" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-stone-800 flex items-center justify-center text-stone-500 hover:text-gold-500 hover:border-gold-600/50 transition-all">
+                  <Instagram className="w-4 h-4" />
+                  <span className="sr-only">Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/scafatiwoodworks" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-stone-800 flex items-center justify-center text-stone-500 hover:text-gold-500 hover:border-gold-600/50 transition-all">
+                  <Facebook className="w-4 h-4" />
+                  <span className="sr-only">Facebook</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="font-serif text-base font-semibold text-stone-200 mb-5 tracking-wide">Quick Links</h3>
+              <ul className="flex flex-col gap-3">
+                <li><Link to="/portfolio" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Project Portfolio</Link></li>
+                <li><Link to="/about" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Our Story</Link></li>
+                <li><Link to="/services" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">All Services</Link></li>
+                <li><Link to="/contact" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Request a Consultation</Link></li>
+              </ul>
+            </div>
+
+            {/* Specialties */}
+            <div>
+              <h3 className="font-serif text-base font-semibold text-stone-200 mb-5 tracking-wide">Specialties</h3>
+              <ul className="flex flex-col gap-3">
+                <li><Link to="/kitchens" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Custom Kitchen Cabinetry</Link></li>
+                <li><Link to="/built-ins" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Architectural Built-ins</Link></li>
+                <li><Link to="/closets" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Luxury Closet Systems</Link></li>
+                <li><Link to="/services/home-bars" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Home Bar & Coffee Stations</Link></li>
+                <li><Link to="/services/media-consoles" className="text-stone-500 hover:text-gold-500 transition-colors text-sm">Media Consoles</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="font-serif text-base font-semibold text-stone-200 mb-5 tracking-wide">Contact Us</h3>
+              <ul className="flex flex-col gap-4">
+                <li className="flex items-start gap-3 text-sm text-stone-500">
+                  <MapPin className="w-4 h-4 text-gold-700 shrink-0 mt-0.5" />
+                  <span>123 Craftsman Way<br />Dallas, TX 75201</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-stone-500">
+                  <Phone className="w-4 h-4 text-gold-700 shrink-0" />
+                  <a href="tel:+18174036044" className="hover:text-gold-500 transition-colors">(817) 403-6044</a>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-stone-500">
+                  <Mail className="w-4 h-4 text-gold-700 shrink-0" />
+                  <a href="mailto:info@scafatiwoodworks.com" className="hover:text-gold-500 transition-colors">info@scafatiwoodworks.com</a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold text-stone-100 mb-4">Quick Links</h3>
-            <ul className="flex flex-col gap-3">
-              <li><Link to="/portfolio" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Project Portfolio</Link></li>
-              <li><Link to="/about" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Our Story</Link></li>
-              <li><Link to="/contact" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Request a Consultation</Link></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold text-stone-100 mb-4">Specialties</h3>
-            <ul className="flex flex-col gap-3">
-              <li><Link to="/kitchens" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Custom Kitchen Cabinetry</Link></li>
-              <li><Link to="/built-ins" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Architectural Built-ins</Link></li>
-              <li><Link to="/services/kitchen-islands" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Working Kitchen Islands</Link></li>
-              <li><Link to="/services/mudrooms" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">Mudroom Drop Zones</Link></li>
-              <li><Link to="/services" className="text-stone-400 hover:text-wood-400 transition-colors text-sm">View All Services &rarr;</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold text-stone-100 mb-4">Contact Us</h3>
-            <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3 text-sm text-stone-400">
-                <MapPin className="w-5 h-5 text-wood-600 shrink-0 mt-0.5" />
-                <span>123 Craftsman Way<br />Dallas, TX 75201</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-stone-400">
-                <Phone className="w-5 h-5 text-wood-600 shrink-0" />
-                <a href="tel:+15551234567" className="hover:text-wood-400 transition-colors">(555) 123-4567</a>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-stone-400">
-                <Mail className="w-5 h-5 text-wood-600 shrink-0" />
-                <a href="mailto:hello@scafatiwoodworks.com" className="hover:text-wood-400 transition-colors">hello@scafatiwoodworks.com</a>
-              </li>
-            </ul>
+          {/* Bottom bar */}
+          <div className="border-t border-stone-900/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-stone-600 text-xs">
+              &copy; {new Date().getFullYear()} Scafati Woodworks. All rights reserved.
+            </p>
+            <div className="text-stone-600 text-xs text-center md:text-right max-w-sm">
+              Proudly serving Dallas, Fort Worth, Plano, Frisco, Southlake, and the greater DFW metroplex.
+            </div>
           </div>
         </div>
-
-        <div className="border-t border-stone-900 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-stone-500 text-sm">
-            &copy; {new Date().getFullYear()} Scafati Woodworks. All rights reserved.
-          </p>
-          <div className="text-stone-500 text-xs text-center md:text-right max-w-md">
-            Proudly serving Dallas, Fort Worth, Plano, Frisco, Southlake, and the greater DFW metroplex with premium custom cabinetry and fine woodworking.
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
