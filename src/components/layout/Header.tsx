@@ -27,7 +27,7 @@ export function Header() {
   const navLinks = [
     { name: 'Services', path: '/services', hasDropdown: true },
     { name: 'Service Areas', path: '/service-areas' },
-    { name: 'About', path: '/about' },
+    { name: 'Our Story', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
 
