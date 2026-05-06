@@ -24,7 +24,7 @@ interface SEOProps {
 }
 
 /** Canonical base for production — update when domain is live */
-const SITE_URL = 'https://scafatiwoodworks.com';
+const SITE_URL = 'https://scafati-woodworks.vercel.app';
 const SITE_NAME = 'Scafati Woodworks';
 const OG_IMAGE = `${SITE_URL}/images/og-share.png`;
 
@@ -109,15 +109,15 @@ export function SEO({
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
-  '@id': 'https://scafatiwoodworks.com/#business',
+  '@id': 'https://scafati-woodworks.vercel.app/#business',
   name: 'Scafati Woodworks',
   description:
     'Custom cabinetry, built-ins, entertainment centers, pantry systems, mudrooms, vanities, and fine woodworking for homeowners throughout the Dallas–Fort Worth area.',
-  url: 'https://scafatiwoodworks.com',
+  url: 'https://scafati-woodworks.vercel.app',
   telephone: '+18174036044',
   email: 'info@scafatiwoodworks.com',
-  image: 'https://scafatiwoodworks.com/images/logo.png',
-  logo: 'https://scafatiwoodworks.com/images/logo.png',
+  image: 'https://scafati-woodworks.vercel.app/images/logo.png',
+  logo: 'https://scafati-woodworks.vercel.app/images/logo.png',
   priceRange: '$$$',
   currenciesAccepted: 'USD',
   paymentAccepted: 'Cash, Check, Credit Card',
@@ -180,6 +180,7 @@ export const localBusinessSchema = {
   sameAs: [
     'https://www.instagram.com/scafati_woodworks',
     'https://www.facebook.com/scafatiwoodworks',
+    'https://scafati-woodworks.vercel.app',
   ],
 };
 
@@ -208,7 +209,7 @@ export function buildServiceSchema(
     serviceType: serviceName,
     availableChannel: {
       '@type': 'ServiceChannel',
-      serviceUrl: 'https://scafatiwoodworks.com/contact',
+      serviceUrl: 'https://scafati-woodworks.vercel.app/contact',
       servicePhone: '+18174036044',
     },
   };
@@ -225,7 +226,7 @@ export function buildBreadcrumbSchema(
       '@type': 'ListItem',
       position: i + 1,
       name: c.name,
-      item: `https://scafatiwoodworks.com${c.path}`,
+      item: `${SITE_URL}${c.path}`,
     })),
   };
 }
