@@ -1,10 +1,12 @@
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import { motion } from 'motion/react';
 
 export function QuoteForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [smsOptIn, setSmsOptIn] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,7 @@ export function QuoteForm() {
         <h3 className="font-serif text-2xl text-wood-900 mb-3">Request Received!</h3>
         <p className="text-wood-500 text-sm leading-relaxed max-w-sm mx-auto">
           Thank you for reaching out. We'll review your project and get back to you within 1–2 business days.
+          {smsOptIn && ' You'll also receive a confirmation text shortly.'}
         </p>
         <Button
           variant="outline"
@@ -134,7 +137,7 @@ export function QuoteForm() {
           <option value="mudroom">Mudroom Storage</option>
           <option value="laundry">Laundry Room Cabinets</option>
           <option value="vanity">Bathroom Vanity</option>
-          <option value="doors-fronts">Cabinet Doors & Drawer Fronts</option>
+          <option value="doors-fronts">Cabinet Doors &amp; Drawer Fronts</option>
           <option value="refacing">Cabinet Refacing</option>
           <option value="shelves">Floating Shelves</option>
           <option value="accent-wall">Accent Wall</option>
@@ -144,7 +147,7 @@ export function QuoteForm() {
         </select>
       </div>
 
-      <div className="space-y-2 mb-7">
+      <div className="space-y-2 mb-6">
         <label htmlFor="details" className="text-xs font-medium text-wood-500 uppercase tracking-wider">Project Details</label>
         <textarea
           id="details"
@@ -155,6 +158,42 @@ export function QuoteForm() {
           onFocus={() => setFocusedField('details')}
           onBlur={() => setFocusedField(null)}
         ></textarea>
+      </div>
+
+      {/* ── SMS Opt-In ── */}
+      <div className="mb-6 p-4 bg-cream-50 border border-cream-200 rounded-lg">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <div className="relative mt-0.5 shrink-0">
+            <input
+              type="checkbox"
+              id="smsOptIn"
+              checked={smsOptIn}
+              onChange={(e) => setSmsOptIn(e.target.checked)}
+              className="sr-only peer"
+            />
+            {/* Custom checkbox */}
+            <div className="w-5 h-5 border-2 border-cream-300 rounded peer-checked:border-gold-500 peer-checked:bg-gold-500 transition-all duration-200 flex items-center justify-center group-hover:border-gold-400">
+              {smsOptIn && (
+                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </div>
+          </div>
+          <div>
+            <span className="text-wood-700 text-sm font-medium leading-snug">
+              Yes, I'd like to receive text message updates about my project.
+            </span>
+            <p className="text-wood-400 text-xs mt-1 leading-relaxed">
+              By checking this box, you consent to receive SMS messages from Scafati Woodworks regarding your
+              project inquiry and updates. Message &amp; data rates may apply. Reply <strong>STOP</strong> to
+              opt out at any time. Reply <strong>HELP</strong> for help. View our{' '}
+              <Link to="/privacy-policy" className="text-gold-600 hover:underline">Privacy Policy</Link>
+              {' '}and{' '}
+              <Link to="/terms" className="text-gold-600 hover:underline">Terms &amp; Conditions</Link>.
+            </p>
+          </div>
+        </label>
       </div>
 
       <Button
@@ -173,6 +212,7 @@ export function QuoteForm() {
           </span>
         ) : 'Get My Free Quote'}
       </Button>
+
       <p className="text-wood-300 text-[10px] text-center mt-4 uppercase tracking-wider">
         Your information is secure. We never share your data.
       </p>

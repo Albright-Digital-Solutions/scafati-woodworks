@@ -133,8 +133,18 @@ export function Footer() {
             <p className="text-stone-600 text-xs">
               &copy; {new Date().getFullYear()} Scafati Woodworks. All rights reserved.
             </p>
-            <div className="text-stone-600 text-xs text-center md:text-right max-w-sm">
-              Proudly serving Dallas, Fort Worth, Plano, Frisco, Southlake, Keller, and the greater DFW metroplex.
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              <Link to="/privacy-policy" className="text-stone-600 text-xs hover:text-gold-400 transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-stone-700 text-xs">·</span>
+              <Link to="/terms" className="text-stone-600 text-xs hover:text-gold-400 transition-colors">
+                Terms &amp; Conditions
+              </Link>
+              <span className="text-stone-700 text-xs hidden md:inline">·</span>
+              <div className="text-stone-600 text-xs text-center hidden md:block">
+                Proudly serving Dallas, Fort Worth, Plano, Frisco, Southlake, Keller, and the greater DFW metroplex.
+              </div>
             </div>
           </div>
         </div>

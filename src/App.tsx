@@ -16,6 +16,8 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { ServiceAreas } from './pages/ServiceAreas';
 import { CityLandingPage } from './pages/CityLandingPage';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsAndConditions } from './pages/TermsAndConditions';
 
 export default function App() {
   return (
@@ -34,6 +36,9 @@ export default function App() {
             {/* ─── Service-Area Landing Pages ─────────────────────── */}
             <Route path="service-areas" element={<ServiceAreas />} />
             <Route path="service-areas/:citySlug" element={<CityLandingPage />} />
+            {/* ─── Legal Pages ────────────────────────────────────── */}
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms" element={<TermsAndConditions />} />
           </Route>
         </Routes>
       </Router>
