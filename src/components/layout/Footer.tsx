@@ -70,9 +70,9 @@ export function Footer() {
             <div>
               <h3 className="font-serif text-base font-semibold text-stone-200 mb-5 tracking-wide">Quick Links</h3>
               <ul className="flex flex-col gap-3">
-                <li><Link to="/portfolio" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">Project Portfolio</Link></li>
                 <li><Link to="/about" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">Our Story</Link></li>
                 <li><Link to="/services" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">All Services</Link></li>
+                <li><Link to="/service-areas" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">Service Areas</Link></li>
                 <li><Link to="/contact" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">Request a Free Quote</Link></li>
               </ul>
             </div>

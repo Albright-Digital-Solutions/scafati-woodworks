@@ -12,7 +12,6 @@ import { BuiltIns } from './pages/BuiltIns';
 import { Closets } from './pages/Closets';
 import { ServicesIndex } from './pages/ServicesIndex';
 import { ServiceDetail } from './pages/ServiceDetail';
-import { Portfolio } from './pages/Portfolio';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { ServiceAreas } from './pages/ServiceAreas';
@@ -30,7 +29,6 @@ export default function App() {
             <Route path="closets" element={<Closets />} />
             <Route path="services" element={<ServicesIndex />} />
             <Route path="services/:slug" element={<ServiceDetail />} />
-            <Route path="portfolio" element={<Portfolio />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             {/* ─── Service-Area Landing Pages ─────────────────────── */}

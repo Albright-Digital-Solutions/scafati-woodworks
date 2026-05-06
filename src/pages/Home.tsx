@@ -114,8 +114,8 @@ export function Home() {
                   <Link to="/contact">Request a Free Quote</Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild className="h-14 px-8 text-base">
-                  <Link to="/portfolio">
-                    View Our Work
+                  <Link to="/services">
+                    View Our Services
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
@@ -363,58 +363,6 @@ export function Home() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-
-      {/* ━━━ PORTFOLIO PREVIEW ━━━ */}
-      <section className="py-28 section-white grain-overlay">
-        <div className="container mx-auto px-4 md:px-6">
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-              <div className="max-w-xl">
-                <SectionDivider className="mb-6 justify-start" />
-                <h2 className="text-4xl md:text-5xl font-serif font-semibold text-wood-900 mb-3">
-                  Recent <span className="text-gold-gradient">Work</span>
-                </h2>
-                <p className="text-wood-500 font-light">A look at some of our recent projects across DFW.</p>
-              </div>
-              <Button variant="outline" asChild>
-                <Link to="/portfolio">
-                  View Full Portfolio
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-
-          {/* Asymmetrical Grid */}
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[260px]">
-            <StaggerItem className="md:col-span-8 md:row-span-2 relative rounded-2xl overflow-hidden img-zoom group shadow-sm shadow-wood-200/30">
-              <img src="/images/luxury-kitchen.png" alt="Custom Kitchen Cabinetry" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-wood-900/10 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-wood-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p className="text-gold-300 text-xs uppercase tracking-[0.2em] mb-1">Custom Kitchens</p>
-                <h4 className="font-serif text-xl text-white">Highland Park Home</h4>
-              </div>
-            </StaggerItem>
-            <StaggerItem className="md:col-span-4 relative rounded-2xl overflow-hidden img-zoom group shadow-sm shadow-wood-200/30">
-              <img src="/images/library-builtins.png" alt="Library Built-Ins" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-wood-900/10 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-wood-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p className="text-gold-300 text-xs uppercase tracking-[0.2em] mb-1">Built-Ins</p>
-                <h4 className="font-serif text-lg text-white">Home Library</h4>
-              </div>
-            </StaggerItem>
-            <StaggerItem className="md:col-span-4 relative rounded-2xl overflow-hidden img-zoom group shadow-sm shadow-wood-200/30">
-              <img src="/images/mudroom-builtins.png" alt="Mudroom Storage" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-wood-900/10 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-wood-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <p className="text-gold-300 text-xs uppercase tracking-[0.2em] mb-1">Mudroom</p>
-                <h4 className="font-serif text-lg text-white">Entryway Lockers</h4>
-              </div>
-            </StaggerItem>
-          </StaggerContainer>
         </div>
       </section>
 
