@@ -26,7 +26,7 @@ interface SEOProps {
 /** Canonical base for production — update when domain is live */
 const SITE_URL = 'https://scafatiwoodworks.com';
 const SITE_NAME = 'Scafati Woodworks';
-const OG_IMAGE = `${SITE_URL}/images/luxury-kitchen.png`;
+const OG_IMAGE = `${SITE_URL}/images/og-share.png`;
 
 export function SEO({
   title,
