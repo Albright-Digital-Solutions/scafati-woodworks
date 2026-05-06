@@ -3,9 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/layout/Layout';
+import { IntroAnimation } from './components/IntroAnimation';
 import { Home } from './pages/Home';
 import { Kitchens } from './pages/Kitchens';
 import { BuiltIns } from './pages/BuiltIns';
@@ -20,8 +22,20 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsAndConditions } from './pages/TermsAndConditions';
 
 export default function App() {
+  // Play intro once per browser session
+  const [showIntro, setShowIntro] = useState<boolean>(() => {
+    if (sessionStorage.getItem('introPlayed')) return false;
+    return true;
+  });
+
+  const handleIntroComplete = useCallback(() => {
+    sessionStorage.setItem('introPlayed', '1');
+    setShowIntro(false);
+  }, []);
+
   return (
     <HelmetProvider>
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
