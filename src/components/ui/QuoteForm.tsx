@@ -43,7 +43,7 @@ export function QuoteForm() {
         <h3 className="font-serif text-2xl text-wood-900 mb-3">Request Received!</h3>
         <p className="text-wood-500 text-sm leading-relaxed max-w-sm mx-auto">
           Thank you for reaching out. We'll review your project and get back to you within 1–2 business days.
-          {smsOptIn && ' You'll also receive a confirmation text shortly.'}
+          {smsOptIn && " You'll also receive a confirmation text shortly."}
         </p>
         <Button
           variant="outline"
