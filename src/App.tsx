@@ -15,6 +15,8 @@ import { ServiceDetail } from './pages/ServiceDetail';
 import { Portfolio } from './pages/Portfolio';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
+import { ServiceAreas } from './pages/ServiceAreas';
+import { CityLandingPage } from './pages/CityLandingPage';
 
 export default function App() {
   return (
@@ -31,6 +33,9 @@ export default function App() {
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
+            {/* ─── Service-Area Landing Pages ─────────────────────── */}
+            <Route path="service-areas" element={<ServiceAreas />} />
+            <Route path="service-areas/:citySlug" element={<CityLandingPage />} />
           </Route>
         </Routes>
       </Router>

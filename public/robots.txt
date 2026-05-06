@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths if any exist
+Disallow: /api/
+
+Sitemap: https://scafatiwoodworks.com/sitemap.xml

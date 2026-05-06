@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Instagram, Facebook, ArrowRight } from 'lucide-rea
 import { ScrollReveal } from '../ui/ScrollReveal';
 import { SectionDivider } from '../ui/SectionDivider';
 import { Button } from '../ui/Button';
+import { dfwCities } from '../../data/cities';
 
 export function Footer() {
   return (
@@ -40,7 +41,7 @@ export function Footer() {
 
       <footer className="bg-wood-950 border-t border-wood-900/50 pt-16 pb-8">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
             {/* Brand */}
             <div className="flex flex-col gap-5 lg:col-span-1">
               <Link to="/" className="flex items-center group mb-1">
@@ -87,6 +88,23 @@ export function Footer() {
                 <li><Link to="/services/bathroom-vanities" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">Bathroom Vanities</Link></li>
                 <li><Link to="/services/cabinet-refacing" className="text-stone-500 hover:text-gold-400 transition-colors text-sm">Cabinet Refacing</Link></li>
                 <li><Link to="/services" className="text-gold-600 hover:text-gold-400 transition-colors text-sm font-medium">View All →</Link></li>
+              </ul>
+            </div>
+
+            {/* Cities We Serve */}
+            <div>
+              <h3 className="font-serif text-base font-semibold text-stone-200 mb-5 tracking-wide">Cities We Serve</h3>
+              <ul className="flex flex-col gap-3">
+                {dfwCities.slice(0, 8).map((city) => (
+                  <li key={city.slug}>
+                    <Link to={`/service-areas/${city.slug}`} className="text-stone-500 hover:text-gold-400 transition-colors text-sm">
+                      {city.name}, TX
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link to="/service-areas" className="text-gold-600 hover:text-gold-400 transition-colors text-sm font-medium">View All →</Link>
+                </li>
               </ul>
             </div>
 

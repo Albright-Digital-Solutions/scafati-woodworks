@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { SEO } from '../components/SEO';
+import { SEO, buildServiceSchema, buildBreadcrumbSchema } from '../components/SEO';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { CheckCircle2, Wrench, ArrowRight } from 'lucide-react';
 import { servicesData } from '../data/services';
@@ -22,11 +22,38 @@ export function ServiceDetail() {
     relatedServices.push(servicesData[(currentIndex + i) % servicesData.length]);
   }
 
+  const serviceSchema = buildServiceSchema(service.title, service.description, 'Dallas');
+  const breadcrumbs = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: service.title, path: `/services/${service.slug}` },
+  ]);
+
+  // Build FAQ for the service
+  const serviceFaqs = [
+    {
+      question: `How much does ${service.title.toLowerCase()} cost in Dallas–Fort Worth?`,
+      answer: `The cost of ${service.title.toLowerCase()} varies based on the size of the project, materials, and finish choices. We offer free, no-obligation quotes — contact us with your project details and we'll get back to you with accurate pricing for your specific home.`,
+    },
+    {
+      question: `How long does ${service.title.toLowerCase()} take?`,
+      answer: `Most projects take 4–8 weeks from signed contract to completed installation, including design approval, fabrication, and installation. We give every client a specific timeline upfront.`,
+    },
+    {
+      question: 'Do you serve my area in DFW?',
+      answer: 'We serve the entire Dallas–Fort Worth metroplex including Dallas, Fort Worth, Plano, Frisco, Southlake, Keller, Flower Mound, Colleyville, Grapevine, Arlington, Mansfield, and Trophy Club.',
+    },
+  ];
+
   return (
     <>
       <SEO
-        title={`${service.title} in Dallas–Fort Worth | Scafati Woodworks`}
-        description={service.description}
+        title={`${service.title} in Dallas–Fort Worth, TX`}
+        description={`${service.description} Serving all of DFW including Dallas, Plano, Frisco, Southlake, Keller, and Fort Worth.`}
+        canonical={`/services/${service.slug}`}
+        schema={serviceSchema}
+        faqs={serviceFaqs}
+        additionalSchemas={[breadcrumbs]}
       />
 
       {/* Hero — warm light banner */}

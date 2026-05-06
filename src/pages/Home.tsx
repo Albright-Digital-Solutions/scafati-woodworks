@@ -1,32 +1,50 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Star, Award, Shield, ArrowDown, CheckCircle2 } from 'lucide-react';
-import { SEO } from '../components/SEO';
+import { ArrowRight, Star, Award, Shield, ArrowDown, CheckCircle2, MapPin } from 'lucide-react';
+import { SEO, localBusinessSchema } from '../components/SEO';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ui/ScrollReveal';
 import { SectionDivider } from '../components/ui/SectionDivider';
 import { CountUp } from '../components/ui/CountUp';
+import { dfwCities } from '../data/cities';
 
 export function Home() {
+  const homeFaqs = [
+    {
+      question: 'What custom cabinetry services does Scafati Woodworks offer?',
+      answer:
+        'We offer fully custom cabinets, built-ins, entertainment centers, pantry systems, mudroom storage, laundry room cabinets, bathroom vanities, cabinet doors and drawer fronts, cabinet refacing, floating shelves, accent walls, lattice wall panels, custom trim work, and general custom woodworking projects. Every project is built from scratch for your specific home.',
+    },
+    {
+      question: 'Where does Scafati Woodworks serve in the DFW area?',
+      answer:
+        'We serve the entire Dallas–Fort Worth metroplex including Dallas, Fort Worth, Plano, Frisco, Southlake, Keller, Flower Mound, Colleyville, Grapevine, Arlington, Mansfield, Trophy Club, and surrounding communities throughout North Texas.',
+    },
+    {
+      question: 'How much do custom cabinets cost in the Dallas area?',
+      answer:
+        'The cost of custom cabinets in the Dallas–Fort Worth area depends on the project size, wood species, finish, and hardware choices. Most kitchen cabinet projects range from $8,000 to $30,000+. We offer free, no-obligation quotes so you can get accurate pricing for your specific project before committing.',
+    },
+    {
+      question: 'How long does a custom cabinet project take?',
+      answer:
+        'Most custom cabinet projects take 4–8 weeks from signed contract to completed installation — including design, fabrication, and installation. Larger or more complex projects may take longer. We give every client a clear timeline at the start.',
+    },
+    {
+      question: 'Do you offer cabinet refacing as an alternative to full replacement?',
+      answer:
+        'Yes. Cabinet refacing is a cost-effective option if your cabinet boxes are in good structural condition. We replace all the doors, drawer fronts, and visible surfaces to give your kitchen or bathroom a fresh look at a fraction of the cost of full replacement.',
+    },
+  ];
+
   return (
     <>
       <SEO
-        title="Custom Cabinetry & Fine Woodworking in Dallas–Fort Worth"
-        description="Scafati Woodworks crafts premium custom cabinets, built-ins, entertainment centers, vanities, and storage solutions for homeowners throughout the DFW area."
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "HomeAndConstructionBusiness",
-          "name": "Scafati Woodworks",
-          "url": "https://scafatiwoodworks.com",
-          "telephone": "+18174036044",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dallas",
-            "addressRegion": "TX",
-            "addressCountry": "US"
-          },
-          "priceRange": "$$$"
-        }}
+        title="Custom Cabinets & Built-Ins in Dallas–Fort Worth, TX"
+        description="Scafati Woodworks builds fully custom cabinets, built-ins, entertainment centers, vanities, pantry systems, and more for homeowners throughout the DFW area. Free quotes available."
+        canonical="/"
+        schema={localBusinessSchema}
+        faqs={homeFaqs}
       />
 
       {/* ━━━ HERO ━━━ */}
@@ -397,6 +415,76 @@ export function Home() {
               </div>
             </StaggerItem>
           </StaggerContainer>
+        </div>
+      </section>
+
+
+
+      {/* ━━━ FAQ ━━━ */}
+      <section className="py-24 section-white">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <ScrollReveal className="text-center mb-14">
+            <SectionDivider className="mb-6" />
+            <h2 className="text-3xl md:text-4xl font-serif font-semibold text-wood-900 mb-4">
+              Frequently Asked <span className="text-gold-gradient">Questions</span>
+            </h2>
+            <p className="text-wood-500 font-light">
+              Common questions from DFW homeowners about our custom cabinetry services.
+            </p>
+          </ScrollReveal>
+
+          <div className="space-y-4">
+            {homeFaqs.map((faq, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <div className="bg-white border border-cream-200 rounded-xl p-6 shadow-sm shadow-wood-100/20">
+                  <h3 className="font-serif font-semibold text-wood-900 text-base mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-wood-500 text-sm leading-relaxed">{faq.answer}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ━━━ SERVICE AREAS ━━━ */}
+      <section className="py-20 section-warm border-y border-cream-200 grain-overlay">
+        <div className="container mx-auto px-4 md:px-6">
+          <ScrollReveal className="text-center mb-12">
+            <SectionDivider className="mb-6" />
+            <h2 className="text-3xl font-serif font-semibold text-wood-900 mb-4">
+              Serving All of <span className="text-gold-gradient">Dallas–Fort Worth</span>
+            </h2>
+            <p className="text-wood-500 font-light max-w-xl mx-auto">
+              We build custom cabinetry for homeowners throughout the DFW metroplex.
+              Select your city to learn more.
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-10">
+            {dfwCities.map((city) => (
+              <StaggerItem key={city.slug}>
+                <Link
+                  to={`/service-areas/${city.slug}`}
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-cream-300 text-wood-700 rounded-full text-sm font-medium hover:border-gold-400 hover:text-gold-700 hover:shadow-sm transition-all"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-gold-500" />
+                  {city.name}, TX
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <ScrollReveal className="text-center">
+            <Button variant="outline" asChild>
+              <Link to="/service-areas">
+                View All Service Areas
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
 
