@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { BubbleLevelCursor } from '../ui/BubbleLevelCursor';
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,7 +18,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <BubbleLevelCursor />
+
       <ScrollToTop />
       <Header />
       <AnimatePresence mode="wait">

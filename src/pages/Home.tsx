@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Star, Award, Shield, ArrowDown, CheckCircle2, MapPin } from 'lucide-react';
+import { ArrowRight, ArrowDown, CheckCircle2, MapPin } from 'lucide-react';
 import { SEO, localBusinessSchema } from '../components/SEO';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ui/ScrollReveal';
 import { SectionDivider } from '../components/ui/SectionDivider';
-import { CountUp } from '../components/ui/CountUp';
 import { dfwCities } from '../data/cities';
 
 export function Home() {
@@ -142,55 +141,6 @@ export function Home() {
       </section>
 
 
-      {/* ━━━ TRUST BAR ━━━ */}
-      <section className="py-14 bg-white border-y border-cream-200 grain-overlay">
-        <div className="container mx-auto px-4 md:px-6">
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 text-center">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full border border-gold-200 bg-gold-50 flex items-center justify-center">
-                  <Award className="w-6 h-6 text-gold-600" />
-                </div>
-                <div className="text-left">
-                  <div className="text-3xl font-serif font-semibold text-wood-900">
-                    <CountUp end={20} suffix="+" />
-                  </div>
-                  <div className="text-wood-400 text-xs uppercase tracking-[0.2em]">Years Experience</div>
-                </div>
-              </div>
-
-              <div className="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-cream-300 to-transparent" />
-
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full border border-gold-200 bg-gold-50 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-gold-600" />
-                </div>
-                <div className="text-left">
-                  <div className="text-3xl font-serif font-semibold text-wood-900">
-                    <CountUp end={500} suffix="+" />
-                  </div>
-                  <div className="text-wood-400 text-xs uppercase tracking-[0.2em]">Projects Completed</div>
-                </div>
-              </div>
-
-              <div className="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-cream-300 to-transparent" />
-
-              <div className="flex items-center gap-4">
-                <div className="flex gap-0.5 mr-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-gold-400 text-gold-400" />
-                  ))}
-                </div>
-                <div className="text-left">
-                  <div className="text-3xl font-serif font-semibold text-wood-900">5.0</div>
-                  <div className="text-wood-400 text-xs uppercase tracking-[0.2em]">Client Rating</div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
 
       {/* ━━━ CORE SERVICES — 3 hero cards ━━━ */}
       <section className="py-28 section-warm grain-overlay">
@@ -281,7 +231,7 @@ export function Home() {
               { name: 'Mudroom Storage', link: '/services/mudroom-storage' },
               { name: 'Laundry Room Cabinets', link: '/services/laundry-room-cabinets' },
               { name: 'Bathroom Vanities', link: '/services/bathroom-vanities' },
-              { name: 'Cabinet Doors & Drawer Fronts', link: '/services/cabinet-doors-drawer-fronts' },
+
               { name: 'Cabinet Refacing', link: '/services/cabinet-refacing' },
               { name: 'Floating Shelves', link: '/services/floating-shelves' },
               { name: 'Accent Walls', link: '/services/accent-walls' },
@@ -334,9 +284,9 @@ export function Home() {
             {[
               {
                 step: '01',
-                title: 'Design Consultation',
-                subtitle: '& 3D Rendering',
-                desc: 'We start with a personal consultation at your home or our shop, take precise measurements, and create 3D renderings so you can see exactly what you\'re getting before a single board is cut.'
+                title: 'In-Home',
+                subtitle: 'Consultation',
+                desc: 'We start with a personal consultation in your home to discuss your vision, needs, and style preferences. During this visit, we take precise measurements and evaluate the space to ensure every detail is considered from the beginning.'
               },
               {
                 step: '02',

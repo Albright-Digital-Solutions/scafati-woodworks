@@ -3,7 +3,7 @@ import { Button } from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ui/ScrollReveal';
 import { SectionDivider } from '../components/ui/SectionDivider';
-import { CountUp } from '../components/ui/CountUp';
+
 import { ArrowRight, Hammer, Layers, ShieldCheck } from 'lucide-react';
 
 const breadcrumbs = buildBreadcrumbSchema([
@@ -65,13 +65,7 @@ export function About() {
                 <div className="absolute -bottom-5 -right-5 w-28 h-28 border border-gold-200 rounded-2xl -z-10 hidden md:block" />
                 <div className="absolute -top-4 -left-4 w-20 h-20 border border-cream-300 rounded-2xl -z-10 hidden md:block" />
 
-                {/* Floating stat card */}
-                <div className="absolute -bottom-8 md:-right-10 left-4 md:left-auto bg-white border border-cream-200 shadow-lg shadow-wood-200/20 rounded-xl px-6 py-5 hidden md:block">
-                  <div className="text-4xl font-serif font-semibold text-gold-600 mb-1">
-                    <CountUp end={20} suffix="+" />
-                  </div>
-                  <div className="text-wood-400 text-xs uppercase tracking-[0.15em]">Years of Excellence</div>
-                </div>
+
               </div>
             </ScrollReveal>
 

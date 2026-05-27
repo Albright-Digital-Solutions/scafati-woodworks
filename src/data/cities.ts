@@ -1313,7 +1313,7 @@ export const cityServices = [
   { name: 'Mudroom Storage', link: '/services/mudroom-storage' },
   { name: 'Laundry Room Cabinets', link: '/services/laundry-room-cabinets' },
   { name: 'Bathroom Vanities', link: '/services/bathroom-vanities' },
-  { name: 'Cabinet Doors & Drawer Fronts', link: '/services/cabinet-doors-drawer-fronts' },
+
   { name: 'Cabinet Refacing', link: '/services/cabinet-refacing' },
   { name: 'Floating Shelves', link: '/services/floating-shelves' },
   { name: 'Accent Walls', link: '/services/accent-walls' },

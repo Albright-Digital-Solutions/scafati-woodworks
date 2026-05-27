@@ -46,9 +46,9 @@ export function Footer() {
             <div className="flex flex-col gap-5 lg:col-span-1">
               <Link to="/" className="flex items-center group mb-1">
                 <img
-                  src="/images/logo-dark.png"
+                  src="/images/Untitled-design-35-2048x758.png"
                   alt="Scafati Woodworks — Cabinets & More"
-                  className="h-20 w-auto group-hover:opacity-80 transition-all duration-300"
+                  className="h-16 w-auto group-hover:opacity-80 transition-all duration-300"
                 />
               </Link>
               <p className="text-stone-400 text-sm leading-relaxed">

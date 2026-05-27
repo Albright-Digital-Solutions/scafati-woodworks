@@ -65,12 +65,8 @@ export function BuiltIns() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="shimmer">
-                  <Link to="/portfolio">
-                    View Built-in Projects
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
+
+
               </div>
             </ScrollReveal>
           </div>

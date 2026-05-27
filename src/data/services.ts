@@ -3,9 +3,9 @@ export const servicesData = [
     slug: 'custom-cabinets',
     title: 'Custom Cabinets',
     subtitle: 'Built to Fit Every Space, Every Style',
-    description: 'No two homes are the same — and your cabinetry shouldn\'t be either. We design and build fully custom cabinets from scratch, sized precisely for your space and finished to match your style. From face-frame to frameless construction, every detail is intentional.',
-    tech: 'Full plywood box construction, dovetail drawer boxes, soft-close hardware.',
-    features: ['Floor-to-ceiling custom sizing', 'Face-frame & frameless options', 'Dovetail drawer box construction', 'Soft-close doors and drawers', 'Paint, stain, or natural finish'],
+    description: 'No two homes are the same — and your cabinetry shouldn\'t be either. Every cabinet is custom-built for your space, your style, and the way you live. From full-overlay to inset construction, and from modern Shaker doors to classic raised-panel designs, every detail is thoughtfully crafted for a timeless result.',
+    tech: 'Full plywood cabinet construction with solid wood face frames, handcrafted drawer boxes, and premium soft-close Blum hinges and slides.',
+    features: ['Floor-to-ceiling custom sizing', 'Full-overlay and inset cabinetry', 'Shaker and raised-panel door styles', 'Handcrafted plywood drawer boxes', 'Soft-close doors and drawers', 'Paint, stain, or natural finish'],
     img: '/images/luxury-kitchen.png'
   },
   {
@@ -20,109 +20,101 @@ export const servicesData = [
   {
     slug: 'entertainment-centers',
     title: 'Entertainment Centers',
-    subtitle: 'The Heart of Your Living Room',
+    subtitle: 'Designed to Be the Focal Point',
     description: 'A well-designed entertainment center anchors the room and hides the clutter. We build custom media walls with wire management, ventilated equipment bays, integrated lighting, and display shelving — all finished to perfection.',
-    tech: 'Door fabrication, mitered-edge box construction, concealed wire management.',
-    features: ['Custom media wall designs', 'Concealed wire management', 'Ventilated AV equipment bays', 'Integrated LED accent lighting', 'Open & closed storage blend'],
+    tech: 'Custom-built entertainment centers with high-quality plywood construction, solid wood face frames, soft-close Blum hardware, and integrated cable management designed to keep your space clean and functional.',
+    features: ['Fully custom entertainment center designs', 'Hidden wire and cable management', 'Open shelving and closed storage options', 'Soft-close doors and drawers', 'Integrated LED accent lighting available', 'Built to fit your exact wall and TV dimensions'],
     img: '/images/media-console.png'
   },
   {
     slug: 'custom-pantry-systems',
     title: 'Custom Pantry Systems',
-    subtitle: 'Organized, Beautiful, Functional',
+    subtitle: 'Designed Around the Way You Live',
     description: 'A custom pantry is one of the highest-value upgrades you can make in a kitchen. We build walk-in and reach-in pantry systems with adjustable shelving, pull-out drawers, spice racks, and dedicated appliance storage — all designed around the way you actually cook.',
-    tech: 'Specialty inserts, pull-out organizers, adjustable shelf pin systems.',
-    features: ['Walk-in & reach-in pantry layouts', 'Pull-out drawers and trays', 'Dedicated small appliance storage', 'Spice rack and can organizers', 'Custom door with soft-close hinges'],
+    tech: 'Custom pantry systems built with high-quality plywood construction, solid wood face frames, adjustable shelving, and premium soft-close Blum hardware for long-lasting organization and everyday functionality.',
+    features: ['Walk-in and reach-in pantry designs', 'Adjustable shelving and custom storage layouts', 'Pull-out drawers and tray organizers', 'Dedicated small appliance storage', 'Soft-close doors and drawers', 'Built to fit your exact space and storage needs'],
     img: '/images/custom-pantry.png'
   },
   {
     slug: 'mudroom-storage',
     title: 'Mudroom Storage',
-    subtitle: 'Elegant Organization for Busy Entryways',
+    subtitle: 'Designed to Keep Everyday Life Organized',
     description: 'A custom mudroom keeps your home organized from the moment you walk in. We build shaker-style lockers, integrated bench seating with flip-top storage, cubbies for each family member, and hook panels that blend seamlessly into your home\'s style.',
-    tech: 'Tall cabinet gables, shelf pin holes, integrated bench framing.',
-    features: ['Custom lockers per family member', 'Integrated bench seating', 'Shaker-style panels and trim', 'Adjustable cubbies and hooks', 'Durable, high-traffic finishes'],
+    tech: 'Custom mudroom storage built with high-quality plywood construction, solid wood face frames, durable finishes, and thoughtfully designed storage to handle everyday family use.',
+    features: ['Custom lockers and cubbies', 'Integrated bench seating with storage', 'Shaker-style panels and trim details', 'Adjustable shelving and coat hooks', 'Durable, high-traffic finishes', 'Built to fit your exact space and storage needs'],
     img: '/images/mudroom-builtins.png'
   },
   {
     slug: 'laundry-room-cabinets',
     title: 'Laundry Room Cabinets',
-    subtitle: 'A Complete Laundry Room Refresh',
+    subtitle: 'Designed to Make Everyday Tasks Easier',
     description: 'Modern laundry rooms deserve the same quality as the rest of your home. We build custom upper and lower cabinets, folding countertops, drying rod installations, and pull-out hamper systems — all with moisture-resistant materials built for the environment.',
-    tech: 'Humidity-resistant HPL or specialized plywood, pull-out accessories.',
-    features: ['Upper & lower custom cabinet runs', 'Custom folding countertop', 'Pull-out hamper systems', 'Drying rod integration', 'Moisture-resistant finishes'],
+    tech: 'Custom laundry room cabinetry built with high-quality plywood construction, solid wood face frames, moisture-resistant finishes, and premium soft-close Blum hardware for long-lasting durability and everyday function.',
+    features: ['Upper and lower custom cabinet layouts', 'Folding countertops and workspace areas', 'Pull-out hamper and storage solutions', 'Drying rod and open shelving options', 'Soft-close doors and drawers', 'Built to fit your exact space and workflow'],
     img: '/images/laundry-room.png'
   },
   {
     slug: 'bathroom-vanities',
     title: 'Bathroom Vanities',
-    subtitle: 'The Gold Standard in Bathroom Luxury',
+    subtitle: 'Designed for Everyday Luxury',
     description: 'A custom vanity makes your bathroom feel like a boutique hotel. We build floating and floor-mounted vanities with premium undermount drawer slides, custom internal organizers, and plumbing cutouts — in any size, finish, or configuration big-box stores can\'t offer.',
-    tech: 'Plywood construction, undermount drawer slides, custom plumbing cutouts.',
-    features: ['Floating or floor-mount designs', 'Hair tool pull-outs with heat-resistant liners', 'Premium undermount drawer slides', 'Double-sink configurations', 'Custom plumbing cutouts'],
-    img: '/images/floating-vanity.png'
+    tech: 'Custom bathroom vanities built with high-quality plywood construction, solid-wood face frames, handcrafted drawer boxes, and premium soft-close Blum hardware for lasting durability and everyday functionality.',
+    features: ['Fully custom vanity designs', 'Floating or floor-mounted configurations', 'Single and double-sink layouts', 'Soft-close doors and drawers', 'Custom storage solutions and drawer organizers', 'Built to fit your exact space and plumbing layout'],
+    img: '/images/Bathroom Vanity.jfif'
   },
-  {
-    slug: 'cabinet-doors-drawer-fronts',
-    title: 'Cabinet Doors & Drawer Fronts',
-    subtitle: 'Refresh the Look Without Replacing Everything',
-    description: 'New doors and drawer fronts can completely transform the look of your kitchen or bathroom at a fraction of full replacement cost. We fabricate custom shaker, flat-panel, raised-panel, and inset doors in any size and finish to match or upgrade your existing boxes.',
-    tech: 'CNC precision routing, edge profiling, concealed hinge boring.',
-    features: ['Shaker, flat-panel, and raised-panel profiles', 'Inset door fabrication', 'Custom sizing for any existing boxes', 'Paint or stain-grade options', 'Soft-close hinge hardware'],
-    img: '/images/cabinet-doors.png'
-  },
+
   {
     slug: 'cabinet-refacing',
     title: 'Cabinet Refacing',
-    subtitle: 'A Brand-New Look at Half the Cost',
-    description: 'If your cabinet boxes are structurally sound, refacing is the smartest upgrade you can make. We resurface your existing boxes with new veneer or laminate, then install all-new custom doors, drawer fronts, and hardware — giving you a completely new kitchen without the full gut job.',
-    tech: 'Veneer application, new face frames, custom door and hardware installation.',
-    features: ['Wood veneer or laminate surfacing', 'New custom door & drawer fronts', 'Updated hardware installation', 'Matching new cabinet additions', 'Faster timeline than full replacement'],
+    subtitle: 'Designed to Refresh Your Existing Cabinets',
+    description: 'Cabinet refacing gives your space a completely updated look while keeping your existing cabinet boxes in place. We build custom new doors, drawer fronts, and drawer boxes designed to fit your existing cabinetry, creating a clean, seamless, and refreshed appearance without a full cabinet replacement.',
+    tech: 'Cabinet refacing is a cost-effective way to update your kitchen while keeping your existing cabinet boxes in place. We build custom new doors, drawer fronts, and drawer boxes designed to fit your existing cabinetry, along with updated hardware for a clean, refreshed look.',
+    features: ['Custom-built doors and drawer fronts', 'New handcrafted drawer boxes', 'Soft-close hinges and drawer slides', 'Updated hardware installation', 'Matching finishes and paint options', 'Built to fit your existing cabinet layout'],
     img: '/images/cabinet-refacing.png'
   },
   {
     slug: 'floating-shelves',
     title: 'Floating Shelves',
-    subtitle: 'Clean, Modern, and Endlessly Versatile',
+    subtitle: 'Designed to Add Warmth, Function, and Style',
     description: 'Custom floating shelves add warmth, display space, and personality to any room. We build them from solid wood or premium plywood, with concealed mounting hardware rated for real loads — not the decorative-only shelves you find at the hardware store.',
-    tech: 'Concealed heavy-duty mounting hardware, solid wood or plywood construction.',
-    features: ['Kitchen open shelving', 'Living & bedroom display shelves', 'Bathroom shelf niches', 'Concealed structural mounting', 'Edge detail and finish options'],
+    tech: 'Custom floating shelves built with high-quality hardwood or plywood construction, concealed heavy-duty mounting hardware, and clean edge detailing for a seamless modern look.',
+    features: ['Custom floating shelf designs', 'Kitchen, living room, and bedroom shelving', 'Bathroom shelf and niche installations', 'Concealed heavy-duty mounting systems', 'Painted or stained finish options', 'Built to fit your exact space and style'],
     img: '/images/floating-shelves.png'
   },
   {
     slug: 'accent-walls',
     title: 'Accent Walls',
-    subtitle: 'The Statement Piece Your Room is Missing',
+    subtitle: 'Designed to Transform Ordinary Walls Into Statement Pieces',
     description: 'A custom wood accent wall instantly elevates a space from nice to stunning. We design and install shiplap, board-and-batten, slat wall, and custom panel designs that add texture, warmth, and architectural character to any room in your home.',
-    tech: 'Shiplap, board-and-batten, slat panel installation.',
-    features: ['Shiplap and board-and-batten', 'Vertical and horizontal slat panels', 'Painted or natural wood finishes', 'Fireplace surround accent walls', 'Bedroom headboard walls'],
+    tech: 'Custom accent walls built with high-quality materials, precision-installed trim and paneling, and clean, modern detailing designed to add depth, texture, and character to your space.',
+    features: ['Shiplap and board-and-batten designs', 'Vertical and horizontal slat wall installations', 'Painted or natural wood finish options', 'Fireplace and entertainment wall features', 'Bedroom headboard accent walls', 'Custom designs built to fit your space and style'],
     img: '/images/accent-wall.png'
   },
   {
     slug: 'lattice-wall-panels',
     title: 'Lattice Wall Panels',
-    subtitle: 'Texture and Drama Without Renovation',
+    subtitle: 'Designed to Bring Texture and Character to Your Space',
     description: 'Lattice and decorative panel walls are a standout design detail that transform plain walls into architectural features. We fabricate and install custom lattice panels, geometric grid walls, and decorative millwork that photograph beautifully and feel custom-built — because they are.',
-    tech: 'CNC routed lattice panels, custom millwork fabrication.',
-    features: ['Custom lattice grid designs', 'Geometric & diamond patterns', 'Painted or stained finishes', 'Dining room and bedroom installs', 'Full wall or wainscot-height'],
+    tech: 'Custom lattice wall panels precision-cut for a clean, seamless fit and designed to create a bold architectural focal point with depth, texture, and timeless style.',
+    features: ['Custom lattice panel designs', 'Geometric and diamond pattern layouts', 'Painted to your color of choice', 'Full-wall and wainscot-height installations', 'Dining room, hallway, and bedroom applications', 'Built to fit your exact space and design vision'],
     img: '/images/lattice-panels.png'
   },
   {
     slug: 'custom-trim-work',
     title: 'Custom Trim Work',
-    subtitle: 'The Finishing Touch That Sets a Home Apart',
-    description: 'Crown molding, coffered ceilings, wainscoting, picture frame molding — the right trim work makes a home feel intentional and elevated. We design and install custom trim profiles that tie your spaces together, from subtle to grand.',
-    tech: 'Custom milled profiles, coped joints, painted finishes.',
-    features: ['Crown molding installation', 'Coffered ceiling design', 'Wainscoting and picture frame molding', 'Custom window and door casings', 'Fireplace mantel surround'],
+    subtitle: 'Built to Add the Finishing Touches That Elevate a Home',
+    description: 'Crown molding, wainscoting, picture frame molding, and custom wall trim are the finishing details that bring a home together. We design and install custom trim work that adds depth, character, and a refined custom feel to your space — from subtle accents to bold statement walls.',
+    tech: 'Custom trim work installed with clean lines, precise joinery, and carefully selected profiles designed to add depth, character, and a refined custom finish to your space.',
+    features: ['Crown molding installation', 'Wainscoting and picture frame molding', 'Custom window and door casings', 'Fireplace mantel surrounds', 'Accent wall trim details', 'Painted or stained finish options'],
     img: '/images/custom-trim.png'
   },
   {
     slug: 'custom-woodworking',
     title: 'Custom Woodworking Projects',
-    subtitle: 'If You Can Dream It, We Can Build It',
+    subtitle: 'Designed Around the Details That Make a Home Unique',
     description: 'Have a one-of-a-kind project in mind? Our shop is built for it. From heirloom furniture and barn doors to custom wine racks, home bars, and Murphy beds — if it involves wood and craftsmanship, we want to hear about it.',
-    tech: 'Full custom fabrication, specialty hardware integration.',
-    features: ['Custom furniture and tables', 'Barn doors and sliding hardware', 'Home bars and coffee stations', 'Murphy bed frame systems', 'Wine racks and cellar shelving'],
+    tech: 'Fully custom woodworking projects built with high-quality materials, precision craftsmanship, and thoughtfully designed details tailored to your space, style, and everyday use.',
+    features: ['Custom furniture and table builds', 'Barn doors and sliding door systems', 'Home bars and coffee stations', 'Murphy bed and space-saving solutions', 'Wine racks and custom display shelving', 'Built to fit your exact space and design vision'],
     img: '/images/home-bar.png'
   }
 ];
