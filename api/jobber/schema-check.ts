@@ -4,13 +4,17 @@ import { jobberGraphql } from './_client.js';
 type TypeRef = { kind: string; name: string | null; ofType?: TypeRef | null };
 
 type SchemaResult = {
-  __type: {
+  mutation: {
     fields: Array<{
       name: string;
       args: Array<{ name: string; type: TypeRef }>;
       type: TypeRef;
     }>;
   } | null;
+  clientInput: { inputFields: Array<{ name: string; type: TypeRef }> } | null;
+  requestInput: { inputFields: Array<{ name: string; type: TypeRef }> } | null;
+  requestNoteInput: { inputFields: Array<{ name: string; type: TypeRef }> } | null;
+  requestPayload: { fields: Array<{ name: string; type: TypeRef }> } | null;
 };
 
 export default async function handler(_request: IncomingMessage, response: ServerResponse) {
@@ -19,21 +23,39 @@ export default async function handler(_request: IncomingMessage, response: Serve
 
   try {
     const data = await jobberGraphql<SchemaResult>(`query MutationSchema {
-      __type(name: "Mutation") {
+      mutation: __type(name: "Mutation") {
         fields {
           name
           args { name type { kind name ofType { kind name ofType { kind name } } } }
           type { kind name ofType { kind name } }
         }
       }
+      clientInput: __type(name: "ClientCreateInput") {
+        inputFields { name type { kind name ofType { kind name ofType { kind name } } } }
+      }
+      requestInput: __type(name: "RequestCreateInput") {
+        inputFields { name type { kind name ofType { kind name ofType { kind name } } } }
+      }
+      requestNoteInput: __type(name: "RequestCreateNoteInput") {
+        inputFields { name type { kind name ofType { kind name ofType { kind name } } } }
+      }
+      requestPayload: __type(name: "RequestCreatePayload") {
+        fields { name type { kind name ofType { kind name } } }
+      }
     }`);
 
-    const fields = data.__type?.fields.filter((field) => /^(client|request)/i.test(field.name)) || [];
+    const fields = data.mutation?.fields.filter((field) => /^(clientCreate|requestCreate)$/i.test(field.name)) || [];
     response.statusCode = 200;
-    response.end(JSON.stringify({ authenticated: true, fields }));
+    response.end(JSON.stringify({
+      authenticated: true,
+      fields,
+      clientInput: data.clientInput,
+      requestInput: data.requestInput,
+      requestNoteInput: data.requestNoteInput,
+      requestPayload: data.requestPayload,
+    }));
   } catch (error) {
     response.statusCode = 500;
     response.end(JSON.stringify({ authenticated: false, error: error instanceof Error ? error.message : 'Schema check failed' }));
   }
 }
-
