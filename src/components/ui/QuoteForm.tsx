@@ -4,16 +4,38 @@ import { Button } from './Button';
 import { motion } from 'motion/react';
 
 export function QuoteForm() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [smsOptIn, setSmsOptIn] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
-    setTimeout(() => {
+
+    const form = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch('/api/jobber/quote-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: form.get('firstName'),
+          lastName: form.get('lastName'),
+          email: form.get('email'),
+          phone: form.get('phone'),
+          projectType: form.get('projectType'),
+          details: form.get('details'),
+          website: form.get('website'),
+          smsOptIn,
+          sourcePage: window.location.pathname,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Request failed');
       setStatus('success');
-    }, 1500);
+    } catch {
+      setStatus('error');
+    }
   };
 
   if (status === 'success') {
@@ -74,6 +96,7 @@ export function QuoteForm() {
           <input
             type="text"
             id="firstName"
+            name="firstName"
             required
             className={inputClass('firstName')}
             placeholder="John"
@@ -86,6 +109,7 @@ export function QuoteForm() {
           <input
             type="text"
             id="lastName"
+            name="lastName"
             required
             className={inputClass('lastName')}
             placeholder="Doe"
@@ -101,6 +125,7 @@ export function QuoteForm() {
           <input
             type="email"
             id="email"
+            name="email"
             required
             className={inputClass('email')}
             placeholder="john@example.com"
@@ -113,6 +138,7 @@ export function QuoteForm() {
           <input
             type="tel"
             id="phone"
+            name="phone"
             className={inputClass('phone')}
             placeholder="(817) 555-0000"
             onFocus={() => setFocusedField('phone')}
@@ -125,6 +151,7 @@ export function QuoteForm() {
         <label htmlFor="projectType" className="text-xs font-medium text-wood-500 uppercase tracking-wider">Project Type</label>
         <select
           id="projectType"
+          name="projectType"
           className={`${inputClass('projectType')} appearance-none`}
           onFocus={() => setFocusedField('projectType')}
           onBlur={() => setFocusedField(null)}
@@ -151,6 +178,7 @@ export function QuoteForm() {
         <label htmlFor="details" className="text-xs font-medium text-wood-500 uppercase tracking-wider">Project Details</label>
         <textarea
           id="details"
+          name="details"
           rows={4}
           required
           className={`${inputClass('details')} resize-none`}
@@ -158,6 +186,11 @@ export function QuoteForm() {
           onFocus={() => setFocusedField('details')}
           onBlur={() => setFocusedField(null)}
         ></textarea>
+      </div>
+
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       {/* ── SMS Opt-In ── */}
@@ -212,6 +245,12 @@ export function QuoteForm() {
           </span>
         ) : 'Get My Free Quote'}
       </Button>
+
+      {status === 'error' && (
+        <p role="alert" className="text-red-700 text-sm text-center mt-4">
+          We couldn't send your request. Please try again or call <a href="tel:+18174036044" className="underline">(817) 403-6044</a>.
+        </p>
+      )}
 
       <p className="text-wood-300 text-[10px] text-center mt-4 uppercase tracking-wider">
         Your information is secure. We never share your data.
