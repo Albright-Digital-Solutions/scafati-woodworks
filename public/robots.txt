@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-
-# Disallow admin or private paths if any exist
 Disallow: /api/
 
-Sitemap: https://scafati-woodworks.vercel.app/sitemap.xml
+Sitemap: https://www.scafatiwoodworks.com/sitemap.xml
