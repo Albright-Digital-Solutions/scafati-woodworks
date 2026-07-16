@@ -19,11 +19,19 @@ export async function getAccessToken() {
     }),
   });
 
-  const result = await response.json() as {
+  const responseText = await response.text();
+  let result: {
     access_token?: string;
     error?: string;
     error_description?: string;
-  };
+  } = {};
+
+  try {
+    result = JSON.parse(responseText);
+  } catch {
+    if (!response.ok) throw new Error(responseText || 'Unable to refresh Jobber access');
+    throw new Error('Jobber returned an invalid token response');
+  }
 
   if (!response.ok || !result.access_token) {
     throw new Error(result.error_description || result.error || 'Unable to refresh Jobber access');
@@ -51,4 +59,3 @@ export async function jobberGraphql<T>(query: string, variables?: Record<string,
 
   return result.data;
 }
-
