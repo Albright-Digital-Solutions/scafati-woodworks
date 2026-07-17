@@ -6,6 +6,7 @@
 import { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import { Layout } from './components/layout/Layout';
 import { IntroAnimation } from './components/IntroAnimation';
 import { Home } from './pages/Home';
@@ -56,6 +57,7 @@ export default function App() {
           </Route>
         </Routes>
       </Router>
+      <Analytics />
     </HelmetProvider>
   );
 }
