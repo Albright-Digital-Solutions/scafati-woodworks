@@ -18,6 +18,7 @@ export function ServicesIndex() {
       <SEO
         title="Custom Woodworking Services in Dallas–Fort Worth | Scafati Woodworks"
         description="Explore Scafati Woodworks' full range of custom cabinetry and woodworking services — including custom cabinets, built-ins, pantry systems, mudrooms, vanities, and more in DFW."
+        canonical="/services"
       />
 
       {/* Hero — light warm banner */}

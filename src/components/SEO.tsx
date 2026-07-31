@@ -21,10 +21,12 @@ interface SEOProps {
   geoPosition?: string;
   /** Placename (e.g., "Dallas, Texas") */
   geoPlacename?: string;
+  /** Prevent search engines from indexing utility/error pages */
+  noindex?: boolean;
 }
 
 /** Canonical base for production — update when domain is live */
-const SITE_URL = 'https://scafati-woodworks.vercel.app';
+const SITE_URL = 'https://www.scafatiwoodworks.com';
 const SITE_NAME = 'Scafati Woodworks';
 const OG_IMAGE = `${SITE_URL}/images/og-share.png`;
 
@@ -38,8 +40,9 @@ export function SEO({
   geoRegion = 'US-TX',
   geoPosition = '32.7767,-96.7970',
   geoPlacename = 'Dallas, Texas',
+  noindex = false,
 }: SEOProps) {
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : undefined;
 
   // Build FAQ schema if questions are provided
@@ -69,6 +72,7 @@ export function SEO({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Geo meta tags for local SEO */}
@@ -109,15 +113,15 @@ export function SEO({
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
-  '@id': 'https://scafati-woodworks.vercel.app/#business',
+  '@id': 'https://www.scafatiwoodworks.com/#business',
   name: 'Scafati Woodworks',
   description:
     'Custom cabinetry, built-ins, entertainment centers, pantry systems, mudrooms, vanities, and fine woodworking for homeowners throughout the Dallas–Fort Worth area.',
-  url: 'https://scafati-woodworks.vercel.app',
+  url: 'https://www.scafatiwoodworks.com',
   telephone: '+18174036044',
   email: 'info@scafatiwoodworks.com',
-  image: 'https://scafati-woodworks.vercel.app/images/logo.png',
-  logo: 'https://scafati-woodworks.vercel.app/images/logo.png',
+  image: 'https://www.scafatiwoodworks.com/images/logo.png',
+  logo: 'https://www.scafatiwoodworks.com/images/logo.png',
   priceRange: '$$$',
   currenciesAccepted: 'USD',
   paymentAccepted: 'Cash, Check, Credit Card',
@@ -180,7 +184,7 @@ export const localBusinessSchema = {
   sameAs: [
     'https://www.instagram.com/scafati_woodworks',
     'https://www.facebook.com/scafatiwoodworks',
-    'https://scafati-woodworks.vercel.app',
+    'https://www.scafatiwoodworks.com',
   ],
 };
 
@@ -209,7 +213,7 @@ export function buildServiceSchema(
     serviceType: serviceName,
     availableChannel: {
       '@type': 'ServiceChannel',
-      serviceUrl: 'https://scafati-woodworks.vercel.app/contact',
+      serviceUrl: 'https://www.scafatiwoodworks.com/contact',
       servicePhone: '+18174036044',
     },
   };

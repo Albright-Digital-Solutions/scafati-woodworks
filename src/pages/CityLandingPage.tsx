@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, MapPin, Phone, Star } from 'lucide-react';
 import { SEO, localBusinessSchema, buildServiceSchema, buildBreadcrumbSchema } from '../components/SEO';
 import { Button } from '../components/ui/Button';
@@ -6,6 +6,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ui/Sc
 import { SectionDivider } from '../components/ui/SectionDivider';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { dfwCities, cityServices } from '../data/cities';
+import { NotFound } from './NotFound';
 
 /** FAQ items for city pages — unique question per city is injected below */
 const sharedFaqs = [
@@ -41,7 +42,7 @@ export function CityLandingPage() {
   const city = dfwCities.find((c) => c.slug === citySlug);
 
   if (!city) {
-    return <Navigate to="/service-areas" replace />;
+    return <NotFound />;
   }
 
   const pageTitle = `Custom Cabinets & Built-Ins in ${city.name}, TX`;

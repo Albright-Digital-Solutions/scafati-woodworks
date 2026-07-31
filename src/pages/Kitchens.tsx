@@ -12,6 +12,7 @@ export function Kitchens() {
       <SEO 
         title="Luxury Custom Kitchen Cabinetry in Dallas"
         description="Elevate your culinary space with bespoke kitchen cabinetry. Scafati Woodworks designs and fabricates high-end, custom kitchen cabinets in the DFW area."
+        canonical="/kitchens"
       />
 
       {/* Hero */}

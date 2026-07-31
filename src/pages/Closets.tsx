@@ -12,6 +12,7 @@ export function Closets() {
       <SEO 
         title="Custom Closets & Luxury Wardrobes in Dallas"
         description="Experience the ultimate in organization with bespoke custom closets and luxury dressing rooms crafted by Scafati Woodworks in Dallas."
+        canonical="/closets"
       />
 
       {/* Hero */}

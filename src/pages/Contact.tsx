@@ -10,6 +10,7 @@ export function Contact() {
       <SEO
         title="Contact Us | Get a Free Quote | Scafati Woodworks"
         description="Contact Scafati Woodworks for a free quote on custom cabinets, built-ins, vanities, and more. Serving homeowners throughout the Dallas–Fort Worth area."
+        canonical="/contact"
       />
 
       {/* Hero — warm light banner */}

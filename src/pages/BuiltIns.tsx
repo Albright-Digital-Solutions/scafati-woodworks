@@ -12,6 +12,7 @@ export function BuiltIns() {
       <SEO 
         title="Architectural Built-ins & Library Shelving in Dallas"
         description="Transform your space with custom architectural built-ins, library shelving, and entertainment centers by Scafati Woodworks in Dallas."
+        canonical="/built-ins"
       />
 
       {/* Hero — warm light banner */}

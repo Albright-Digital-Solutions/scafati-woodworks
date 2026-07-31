@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { SEO, buildServiceSchema, buildBreadcrumbSchema } from '../components/SEO';
 import { QuoteForm } from '../components/ui/QuoteForm';
 import { CheckCircle2, Wrench, ArrowRight } from 'lucide-react';
@@ -6,6 +6,7 @@ import { servicesData } from '../data/services';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { SectionDivider } from '../components/ui/SectionDivider';
 import { Button } from '../components/ui/Button';
+import { NotFound } from './NotFound';
 
 export function ServiceDetail() {
   const { slug } = useParams();
@@ -13,7 +14,7 @@ export function ServiceDetail() {
   const currentIndex = servicesData.findIndex(s => s.slug === slug);
 
   if (!service) {
-    return <Navigate to="/services" replace />;
+    return <NotFound />;
   }
 
   // Get related services (next 3, wrapping around)

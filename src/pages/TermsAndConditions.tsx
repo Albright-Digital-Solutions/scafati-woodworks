@@ -38,7 +38,7 @@ export function TermsAndConditions() {
                 <h2 className="font-serif text-xl font-semibold text-wood-900 mb-3">1. Agreement to Terms</h2>
                 <p>
                   By accessing or using the website of Scafati Woodworks ("we," "us," or "our") at{' '}
-                  <a href="https://scafati-woodworks.vercel.app" className="text-gold-700 hover:underline">scafatiwoodworks.com</a>,
+                  <a href="https://www.scafatiwoodworks.com" className="text-gold-700 hover:underline">scafatiwoodworks.com</a>,
                   you agree to be bound by these Terms and Conditions. If you do not agree, please do not use this website.
                   These terms apply to all visitors and users of this site.
                 </p>

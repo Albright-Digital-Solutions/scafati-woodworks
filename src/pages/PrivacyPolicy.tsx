@@ -39,7 +39,7 @@ export function PrivacyPolicy() {
                 <p>
                   Scafati Woodworks ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy
                   explains how we collect, use, disclose, and safeguard your information when you visit our website
-                  at <a href="https://scafati-woodworks.vercel.app" className="text-gold-700 hover:underline">scafatiwoodworks.com</a> or
+                  at <a href="https://www.scafatiwoodworks.com" className="text-gold-700 hover:underline">scafatiwoodworks.com</a> or
                   contact us through any of our communication channels, including SMS/text messaging.
                   Please read this policy carefully. If you disagree with its terms, please stop using our site.
                 </p>

@@ -21,6 +21,7 @@ import { ServiceAreas } from './pages/ServiceAreas';
 import { CityLandingPage } from './pages/CityLandingPage';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsAndConditions } from './pages/TermsAndConditions';
+import { NotFound } from './pages/NotFound';
 
 export default function App() {
   // Play intro once per browser session
@@ -38,26 +39,31 @@ export default function App() {
     <HelmetProvider>
       {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
       <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="kitchens" element={<Kitchens />} />
-            <Route path="built-ins" element={<BuiltIns />} />
-            <Route path="closets" element={<Closets />} />
-            <Route path="services" element={<ServicesIndex />} />
-            <Route path="services/:slug" element={<ServiceDetail />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            {/* ─── Service-Area Landing Pages ─────────────────────── */}
-            <Route path="service-areas" element={<ServiceAreas />} />
-            <Route path="service-areas/:citySlug" element={<CityLandingPage />} />
-            {/* ─── Legal Pages ────────────────────────────────────── */}
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="terms" element={<TermsAndConditions />} />
-          </Route>
-        </Routes>
+        <AppRoutes />
       </Router>
       <Analytics />
     </HelmetProvider>
+  );
+}
+
+export function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="kitchens" element={<Kitchens />} />
+        <Route path="built-ins" element={<BuiltIns />} />
+        <Route path="closets" element={<Closets />} />
+        <Route path="services" element={<ServicesIndex />} />
+        <Route path="services/:slug" element={<ServiceDetail />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="service-areas" element={<ServiceAreas />} />
+        <Route path="service-areas/:citySlug" element={<CityLandingPage />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms" element={<TermsAndConditions />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
